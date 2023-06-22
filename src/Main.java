@@ -1,13 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner eingabe = new Scanner(System.in);
         Koffer koffer = new Koffer(120, "");
 
-        koffer.einpacken("Hose");
-        koffer.einpacken("Regenschirm");
-        koffer.einpacken("Sonnenbrille");
-        koffer.einpacken("Tablet");
-        koffer.einpacken("Urlaubsgenehmigungszustimmungsformular in zweifacher Ausfertigung mit Gültigkeitsnachweiszertifikat");
-
+        while (true) {
+            System.out.print("Bitte Gegenstand eingeben: ");
+            String gegenstand = eingabe.nextLine();
+            if ( gegenstand.isBlank() ) break;
+            koffer.einpacken(gegenstand);
+        }
         koffer.inhaltAnzeigen();
     }
 }
