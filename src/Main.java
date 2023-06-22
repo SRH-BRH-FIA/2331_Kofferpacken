@@ -2,6 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Koffer testKoffer = new Koffer(80, "");
+        testKoffer.einpacken("Schirm");
+        testKoffer.einpacken("Buch");
+        testKoffer.einpacken("Tasche");
+        testKoffer.inhaltAnzeigen();
+        testKoffer.auspacken("Tasche");
+        testKoffer.inhaltAnzeigen();
+
         Scanner eingabe = new Scanner(System.in);
         Koffer koffer = new Koffer(120, "");
 

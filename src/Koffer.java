@@ -21,7 +21,13 @@ public class Koffer {
     }
 
     public void auspacken(String gegenstand) {
-        // TODO
+        String neuerInhalt;
+        int positionDesGegenstands = inhalt.indexOf(gegenstand);
+        if (positionDesGegenstands < 0) return;
+
+        neuerInhalt = inhalt.substring(0, positionDesGegenstands) +
+                      inhalt.substring(positionDesGegenstands + gegenstand.length() + 2, inhalt.length());
+        inhalt = neuerInhalt;
     }
 
     public void inhaltAnzeigen() {
