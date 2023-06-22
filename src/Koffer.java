@@ -8,15 +8,16 @@ public class Koffer {
         this.inhalt = inhalt;
     }
 
-    public void einpacken(String gegenstand) {
+    public boolean einpacken(String gegenstand) {
         if (inhalt.length() + gegenstand.length() > kapazität) {
-            System.out.println("Koffer ist schon voll");
-            return;
+            //System.out.println("Koffer ist schon voll");
+            return false;
         }
         if ( ! inhalt.isEmpty() ) {
             inhalt += ", ";
         }
         inhalt += gegenstand;
+        return true;
     }
 
     public void auspacken(String gegenstand) {

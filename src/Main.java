@@ -6,10 +6,18 @@ public class Main {
         Koffer koffer = new Koffer(120, "");
 
         while (true) {
+//            System.out.println("Wieviele Gegenstände wollen Sie einpacken: ");
+//            int anzahl = eingabe.nextInt();
+//            eingabe.nextLine(); // <- Flush
             System.out.print("Bitte Gegenstand eingeben: ");
             String gegenstand = eingabe.nextLine();
             if ( gegenstand.isBlank() ) break;
-            koffer.einpacken(gegenstand);
+            if ( ! koffer.einpacken(gegenstand) ) {
+                System.out.println("Gegenstand ist zu groß");
+                System.out.print("Wollen Sie etwas wieder auspacken: ");
+                gegenstand = eingabe.nextLine();
+                if ( ! gegenstand.isBlank() ) koffer.auspacken(gegenstand);
+            }
         }
         koffer.inhaltAnzeigen();
     }
