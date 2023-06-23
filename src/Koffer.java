@@ -25,8 +25,14 @@ public class Koffer {
         int positionDesGegenstands = inhalt.indexOf(gegenstand);
         if (positionDesGegenstands < 0) return;
 
-        neuerInhalt = inhalt.substring(0, positionDesGegenstands) +
-                      inhalt.substring(positionDesGegenstands + gegenstand.length() + 2, inhalt.length());
+        neuerInhalt = inhalt.substring(0, positionDesGegenstands);
+        if (positionDesGegenstands + gegenstand.length() + 2 < inhalt.length()) {
+            neuerInhalt += inhalt.substring(positionDesGegenstands + gegenstand.length() + 2);
+        }
+        else if (neuerInhalt.length() > 2) {
+            neuerInhalt = inhalt.substring(0, neuerInhalt.length()-2);
+        }
+
         inhalt = neuerInhalt;
     }
 
